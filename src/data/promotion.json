@@ -1,0 +1,20 @@
+[
+  {
+    "type": "item",
+    "itemId": 2,
+    "quantity": 2,
+    "discount": "0.05"
+  },
+  {
+    "type": "item",
+    "itemId": 5,
+    "quantity": 2,
+    "discount": "0.05"
+  },
+  {
+    "type": "item",
+    "itemId": 7,
+    "quantity": 2,
+    "discount": "0.05"
+  }
+]
