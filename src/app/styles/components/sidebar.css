@@ -1,5 +1,13 @@
 @layer components {
   .sidebar {
+    @apply p-4 pt-12;
 
+    .sidebar-title {
+      @apply text-off-white text-6xl font-semibold mb-8;
+    }
+  }
+
+  .order-empty {
+    @apply border-dashed border border-gray/50 text-gray/50 text-center italic p-12;
   }
 }

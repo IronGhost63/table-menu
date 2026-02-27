@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto, Cascadia_Mono } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
 const robotoFont = Roboto({
 	variable: "--font-roboto",
 });
 
-const cascadia = Cascadia_Mono({
-	variable: "--font-cascadia-mono",
+const robotoMonoFont = Roboto_Mono({
+	variable: "--font-roboto-mono",
 });
 
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 			<head>
 				<link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
 			</head>
-			<body className={`${robotoFont.variable} ${cascadia.variable} antialiased`}>{children}</body>
+			<body className={`${robotoFont.variable} ${robotoMonoFont.variable} antialiased`}>{children}</body>
 		</html>
 	);
 }

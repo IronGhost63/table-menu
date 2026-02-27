@@ -1,5 +1,37 @@
 @layer components {
   .menu-selection {
-    @apply grid grid-cols-2 gap-4 md:gap-8;
+    @apply min-w-1/2 h-full p-4 pt-12;
+
+    .title {
+      @apply text-black text-6xl font-semibold mb-8;
+    }
+
+    .menu-list {
+       @apply grid grid-cols-4 gap-4 w-full;
+    }
+
+    .menu-item {
+      @apply relative aspect-square text-off-white text-center flex flex-col justify-center items-center text-shadow-2xs;
+
+      &::after {
+        @apply absolute top-0 left-0 right-0 bottom-0 content-[''] bg-radial from-black/20 from-15% to-black/5 transition-all duration-150
+      }
+
+      &:hover {
+        @apply cursor-pointer text-white;
+
+        &::after {
+          @apply bg-black/15;
+        }
+      }
+    }
+
+    .item-name {
+      @apply relative z-5 text-2xl mb-6 transition-all duration-150;
+    }
+
+    .item-price {
+      @apply relative z-5 text-lg transition-all duration-150;
+    }
   }
 }

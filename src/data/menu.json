@@ -2,36 +2,43 @@
   {
     "id": 1,
     "name": "Red set",
-    "price": 50
+    "price": 50,
+    "color": "crail"
   },
   {
     "id": 2,
     "name": "Green set",
-    "price": 40
+    "price": 40,
+    "color": "fruit-salad"
   },
   {
     "id": 3,
     "name": "Blue set",
-    "price": 30
+    "price": 30,
+    "color": "pacific-blue"
   },
   {
     "id": 4,
     "name": "Yellow set",
-    "price": 50
+    "price": 50,
+    "color": "sweet-corn"
   },
   {
     "id": 5,
     "name": "Pink set",
-    "price": 80
+    "price": 80,
+    "color": "tickle-me-pink"
   },
   {
     "id": 6,
     "name": "Purple set",
-    "price": 90
+    "price": 90,
+    "color": "vivid-violet"
   },
   {
     "id": 7,
     "name": "Orange set",
-    "price": 120
+    "price": 120,
+    "color": "tan-hide"
   }
 ]
