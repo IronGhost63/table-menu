@@ -1,14 +1,14 @@
 "use client"
 
-import { MenuContext, OrderContext } from "./context";
+import { MenuProvider } from "./lib/menu-context";
+import { OrderProvider } from "./lib/order-context";
 import MenuList from "./components/menu-list";
 import Sidebar from "./components/sidebar";
-import menuItems from "../data/menu.json";
 
 export default function Home() {
   return (
-    <MenuContext.Provider value={menuItems}>
-      <OrderContext.Provider value={[]}>
+    <MenuProvider>
+      <OrderProvider>
         <main className="main-container">
           <div className="content-area">
             <MenuList />
@@ -17,7 +17,7 @@ export default function Home() {
             <Sidebar />
           </div>
         </main>
-      </OrderContext.Provider>
-    </MenuContext.Provider>
+      </OrderProvider>
+    </MenuProvider>
   );
 }

@@ -1,17 +1,26 @@
 "use client"
 
-import { useContext } from "react";
-import { MenuContext } from "../context";
+import { useMenu } from "../lib/menu-context";
+import { useOrder } from "../lib/order-context";
+import { MenuItem } from "../lib/definitions";
 
 export default function MenuList() {
-  const menuItems = useContext(MenuContext);
+  const menuItems = useMenu();
+  const orders = useOrder();
+
+  const handleAddMenu = (item: MenuItem) => {
+    orders.updateOrderItem({
+      menuId: item.id,
+      quantity: 1,
+    });
+  }
 
   return (
     <div className="menu-selection">
       <h2 className="title">Menu</h2>
       <div className="menu-list">
         {menuItems.map(item => (
-        <div className='menu-item' style={{ backgroundColor: `var(--color-${item.color})` }} key={JSON.stringify(item)}>
+        <div className='menu-item' style={{ backgroundColor: `var(--color-${item.color})` }} key={JSON.stringify(item)} onClick={() => handleAddMenu(item)}>
           <p className="item-name">{item.name}</p>
           <p className="item-price">{item.price} THB</p>
         </div>
