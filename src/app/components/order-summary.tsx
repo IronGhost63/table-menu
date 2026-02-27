@@ -57,7 +57,6 @@ export default function OrderSummary() {
   const total = subtotal - Number(totalDiscount);
 
   const handleMembershipToggle = () => {
-    console.log('hello')
     setIsMember(!isMember);
   }
 
