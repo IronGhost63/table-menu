@@ -11,11 +11,9 @@ export type MenuItem = {
 }
 
 export type Promotion = {
-  type: string;
   required: {
     itemId?: number;
     itemQuantity?: number;
-    member?: boolean;
   },
   discount: number;
 }

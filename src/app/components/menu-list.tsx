@@ -2,17 +2,14 @@
 
 import { useMenu } from "../lib/menu-context";
 import { useOrder } from "../lib/order-context";
-import { MenuItem } from "../lib/definitions";
+import { MenuItem, OrderItem } from "../lib/definitions";
 
 export default function MenuList() {
   const menuItems = useMenu();
   const orders = useOrder();
 
   const handleAddMenu = (item: MenuItem) => {
-    orders.updateOrderItem({
-      menuId: item.id,
-      quantity: 1,
-    });
+    orders.addOrderItem(item.id)
   }
 
   return (

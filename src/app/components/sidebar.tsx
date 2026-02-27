@@ -1,7 +1,9 @@
 "use client"
 
-import { useState, useContext } from 'react';
 import { useOrder } from "../lib/order-context";
+import { OrderItem } from "../lib/definitions";
+import OrderMenuItem from "./order-menu-item";
+import OrderSummary from "../components/order-summary";
 
 export default function Sidebar() {
   const orders = useOrder();
@@ -16,8 +18,12 @@ export default function Sidebar() {
       )}
       {orders.items.length > 0 && (
         <div className="order-detail">
-          <div className="order-items"></div>
-          <div className="order-summary"></div>
+          <ul className="order-items">
+            {orders.items.map((item: OrderItem) => (
+              <OrderMenuItem item={item}/>
+            ))}
+          </ul>
+          <OrderSummary />
         </div>
       )}
     </div>
