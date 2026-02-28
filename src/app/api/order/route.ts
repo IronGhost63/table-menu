@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { Receipt } from "@/app/lib/definitions";
 import { getDb } from "@/app/lib/database";
 import { ordersTable } from "@/data/schema";
@@ -16,11 +16,14 @@ export async function POST(request: NextRequest) {
       .returning()
       .get();
 
-    return Response.json({
-      message: 'order successfully saved',
+    return NextResponse.json({
+      message: 'Order successfully saved',
       orderId: order.id
     })
-  } catch (error) {
-
+  } catch (error: any) {
+    return NextResponse.json({
+      message: 'Unable to create order',
+      error: error.message,
+    }, { status: 400 });
   }
 }

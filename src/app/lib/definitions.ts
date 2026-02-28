@@ -11,7 +11,7 @@ export type Receipt = {
 export type ReceiptItem = {
   name: string;
   quantity: number;
-  price: number;
+  unitPrice: number;
 }
 
 export type ReceiptSummary = {

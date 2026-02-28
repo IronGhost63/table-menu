@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, ReactNode } from "react";
-import { OrderItem } from "./definitions";
+import { OrderItem, ReceiptSummary } from "./definitions";
 
 const OrderContext = createContext<any>({});
 

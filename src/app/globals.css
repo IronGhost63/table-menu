@@ -39,4 +39,5 @@
 @import "./styles/components/tab-bar.css";
 @import "./styles/components/menu-selection.css";
 @import "./styles/components/sidebar.css";
-@import "./styles//components/modal.css";
+@import "./styles/components/modal.css";
+@import "./styles/components/receipt-detail.css";

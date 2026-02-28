@@ -1,0 +1,41 @@
+@layer components {
+  .receipt-detail {
+    @apply w-full md:max-w-120 border border-black m-4 p-6;
+
+    .title {
+      @apply text-3xl font-semibold mb-6;
+    }
+
+    .separator {
+      @apply border-gray mb-6;
+    }
+
+    .items {
+      @apply mb-6;
+    }
+
+    .item {
+      @apply flex justify-between items-center mb-4;
+    }
+
+    .name {
+      @apply text-lg
+    }
+
+    .price {
+      @apply text-gray text-sm;
+    }
+
+    .quantity {
+      @apply text-xl
+    }
+
+    .summary-line {
+      @apply flex items-center justify-between;
+
+      &.total {
+        @apply text-2xl mt-8;
+      }
+    }
+  }
+}
