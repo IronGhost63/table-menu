@@ -1,68 +1,90 @@
 @layer components {
   .sidebar {
-    @apply p-4 pt-12;
+    @apply w-full md:w-1/3 bg-black h-full max-h-full text-white p-4 pt-12 overflow-auto;
 
     .sidebar-title {
       @apply text-off-white text-6xl font-semibold mb-8;
     }
-  }
 
-  .order-empty {
-    @apply border-dashed border border-gray/50 text-gray/50 text-center italic p-12;
-  }
-
-  .order-items {
-    @apply mb-8;
-  }
-
-  .order-item {
-    @apply flex justify-between items-center mb-3;
-
-    .item-name {
-      @apply text-lg;
+    .order-empty {
+      @apply border-dashed border border-gray/50 text-gray/50 text-center italic p-12;
     }
 
-    .item-price {
-      @apply text-sm text-gray/50;
+    .order-items {
+      @apply mb-8;
     }
 
-    .item-quantity {
-      @apply w-14 h-8 text-center;
-    }
+    .order-item {
+      @apply flex justify-between items-center mb-3;
 
-    .item-increase,
-    .item-decrease {
-      @apply w-8 h-8 border border-gray/50 cursor-pointer;
-    }
-  }
-
-  .order-summary {
-    .membership-button {
-      @apply border border-gray/20 w-full px-8 py-3 flex items-center justify-between mb-8;
-
-      .membership-check {
-        @apply text-gray/50;
+      .item-name {
+        @apply text-lg;
       }
 
-      &:hover {
-        @apply cursor-pointer;
+      .item-price {
+        @apply text-sm text-gray/50;
       }
 
-      &.active {
-        @apply border-green;
+      .item-quantity {
+        @apply w-14 h-8 text-center;
+      }
+
+      .item-increase,
+      .item-decrease {
+        @apply w-8 h-8 border border-gray/50 cursor-pointer;
+      }
+    }
+
+    .order-summary {
+      @apply mb-8;
+
+      .membership-button {
+        @apply border border-gray/20 w-full px-8 py-3 flex items-center justify-between mb-8;
 
         .membership-check {
-          @apply text-green;
+          @apply text-gray/50;
+        }
+
+        &:hover {
+          @apply cursor-pointer;
+        }
+
+        &.active {
+          @apply border-green;
+
+          .membership-check {
+            @apply text-green;
+          }
+        }
+      }
+
+      .summary-line {
+        @apply flex items-center justify-between;
+
+        &.total {
+          @apply text-2xl mt-8;
         }
       }
     }
 
-    .summary-line {
-      @apply flex items-center justify-between;
+    .order-create {
+      @apply bg-green w-full px-8 py-3 flex items-center justify-center mb-4 cursor-pointer gap-2;
 
-      &.total {
-        @apply text-2xl mt-8;
+      &:active {
+        @apply bg-green/80
       }
+    }
+
+    .order-clear {
+      @apply bg-red w-full px-8 py-3 flex items-center justify-center mb-8 cursor-pointer gap-2;
+
+      &:active {
+        @apply bg-red/80
+      }
+    }
+
+    .spinner {
+      @apply w-14 h-14 animate-spin mx-auto;
     }
   }
 }

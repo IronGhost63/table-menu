@@ -47,8 +47,12 @@ const OrderProvider = ({ children }: { children: ReactNode }) => {
     setItems(updatedItem);
   }
 
+  const clearOrder= () => {
+    setItems([]);
+  }
+
   return (
-    <OrderContext.Provider value={{items, addOrderItem, removeOrderItem}}>
+    <OrderContext.Provider value={{items, addOrderItem, removeOrderItem, clearOrder}}>
       {children}
     </OrderContext.Provider>
   );

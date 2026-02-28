@@ -1,0 +1,25 @@
+@layer components {
+  .modal {
+    @apply p-5 rounded-[20px] max-w-9/10 w-120 fixed top-1/2 left-1/2 -translate-1/2;
+
+    .modal-content {
+      @apply mb-8
+    }
+
+    &::backdrop {
+      @apply bg-black/60;
+    }
+
+    .modal-control {
+      @apply flex gap-4;
+    }
+
+    .button {
+      @apply bg-green w-full px-8 py-3 flex items-center justify-center mb-4 cursor-pointer gap-2 text-white;
+
+      &:active {
+        @apply bg-green/80
+      }
+    }
+  }
+}

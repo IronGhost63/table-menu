@@ -1,13 +1,21 @@
 @layer components {
   .main-container {
-    @apply  flex min-h-screen h-screen items-center justify-center font-sans;
+    @apply  flex flex-col md:flex-row min-h-screen h-screen md:items-center md:justify-center font-sans;
   }
 
   .content-area {
-    @apply w-full h-full flex items-center justify-center bg-white;
+    @apply hidden md:flex w-full h-full items-center justify-center bg-white;
+
+    &.active {
+      @apply flex;
+    }
   }
 
   .sidebar {
-    @apply w-1/3 bg-black h-full text-white;
+    @apply hidden md:block;
+
+    &.active {
+      @apply block;
+    }
   }
 }

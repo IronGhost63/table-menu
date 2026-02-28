@@ -1,0 +1,17 @@
+@layer components {
+  .tab-bar {
+    @apply flex md:hidden w-full;
+
+    .tab {
+      @apply w-full;
+    }
+
+    .tab-toggle {
+      @apply text-center w-full bg-gray p-4;
+
+      &.active {
+        @apply bg-green text-white;
+      }
+    }
+  }
+}
