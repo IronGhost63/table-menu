@@ -5,7 +5,9 @@ import { BsReceipt, BsXCircle  } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
 import { useOrder } from "../lib/order-context";
 import { useMenu } from "../lib/menu-context";
+import { usePromotion } from "../lib/promotion-context";
 import { MenuItem, OrderItem } from "../lib/definitions";
+import { calculateSubtotal, calculateDiscount } from "../lib/order-helper";
 import Link from "next/link";
 import OrderMenuItem from "./order-menu-item";
 import OrderSummary from "../components/order-summary";
@@ -13,16 +15,18 @@ import Modal from "../components/modal";
 
 export default function Sidebar() {
   const defaultModal = <div className="modal-loading-content"><CgSpinner className="spinner"/></div>;
-  const orders = useOrder();
+  const order = useOrder();
   const menu = useMenu();
+  const promotion = usePromotion();
   const [confirmModal, setConfirmModal] = useState(false);
   const [modalMessage, setModalMessage] = useState(defaultModal);
   const [modalHideControl, setModalHideControl] = useState(false);
 
   const handleCreateOrder = async () => {
-    setConfirmModal(false);
+    setModalHideControl(false);
+    setConfirmModal(true);
 
-    const orderItems = orders.items.map((orderItem: OrderItem) => {
+    const orderItems = order.items.map((orderItem: OrderItem) => {
       const menuItem = menu.find((item: MenuItem) => orderItem.menuId === item.id);
 
       if (!menuItem) {
@@ -36,14 +40,15 @@ export default function Sidebar() {
       }
     });
 
-    console.log( orderItems );
+    const subtotal = calculateSubtotal( order.items, menu );
+    const { itemDiscount, memberDiscount } = calculateDiscount(promotion, order.items, menu, subtotal, order.isMember);
 
     const receiptPayload = {
       items: orderItems,
       summary: {
-        subtotal: 0,
-        discount: 0,
-        total: 0,
+        subtotal: subtotal,
+        discount: itemDiscount + memberDiscount,
+        total: subtotal - itemDiscount - memberDiscount,
       }
     }
 
@@ -57,7 +62,7 @@ export default function Sidebar() {
 
       setModalMessage(
         <div className="save-success">
-          <p>Order is created</p>
+          <p className="message">Order is created</p>
           <p>
             <Link href={`/order/${payload.orderId}`}>Click here to see receipt</Link>
           </p>
@@ -69,25 +74,25 @@ export default function Sidebar() {
       );
     }
 
-    setConfirmModal(true);
+    setModalHideControl(false);
   }
 
   const handleClearOrder = () => {
-    orders.clearOrder();
+    order.clearOrder();
   }
 
   return (
     <div className="sidebar-container">
       <h2 className="sidebar-title">Order</h2>
-      {orders.items.length === 0 && (
+      {order.items.length === 0 && (
         <div className="order-empty">
           Add item to start
         </div>
       )}
-      {orders.items.length > 0 && (
+      {order.items.length > 0 && (
         <div className="order-detail">
           <ul className="order-items">
-            {orders.items.map((item: OrderItem, index: number) => (
+            {order.items.map((item: OrderItem, index: number) => (
               <OrderMenuItem key={`order-item-${index}`} item={item}/>
             ))}
           </ul>

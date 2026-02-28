@@ -5,6 +5,7 @@ const OrderContext = createContext<any>({});
 
 const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<OrderItem[]>([]);
+  const [isMember, setIsMember] = useState(false);
 
   const addOrderItem = (menuId: number) => {
     const existingItem = items.find((item: OrderItem) => item.menuId === menuId);
@@ -52,7 +53,7 @@ const OrderProvider = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <OrderContext.Provider value={{items, addOrderItem, removeOrderItem, clearOrder}}>
+    <OrderContext.Provider value={{items, isMember, setIsMember, addOrderItem, removeOrderItem, clearOrder}}>
       {children}
     </OrderContext.Provider>
   );
