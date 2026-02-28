@@ -10,7 +10,7 @@ import Sidebar from "./components/sidebar";
 export default function Home() {
   const [currentTab, setCurrentTab] = useState('menu');
 
-  const handleTabToggle = (e) => {
+  const handleTabToggle: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setCurrentTab(e.currentTarget.value);
   }
   return (
