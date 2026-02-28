@@ -3,6 +3,23 @@ export type OrderItem = {
   quantity: number;
 }
 
+export type Receipt = {
+  items: ReceiptItem[];
+  summary: ReceiptSummary;
+}
+
+export type ReceiptItem = {
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+export type ReceiptSummary = {
+  subtotal: number;
+  discount: number;
+  total: number;
+}
+
 export type MenuItem = {
   id: number;
   name: string;
