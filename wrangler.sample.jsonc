@@ -38,8 +38,8 @@
 	"d1_databases": [
 			{
 					"binding": "DB",
-					"database_name": "table-order",
-					"database_id": "1d6173af-c060-4d42-b73d-997eaa8639c7",
+					"database_name": "<D1_NAME>",
+					"database_id": "<D1_DATABASE_ID>",
 					"migrations_dir": "drizzle"
 			}
 	]
