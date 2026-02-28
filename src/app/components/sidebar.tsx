@@ -58,7 +58,7 @@ export default function Sidebar() {
         body: JSON.stringify(receiptPayload),
       });
 
-      const payload = await response.json();
+      const payload:any = await response.json();
 
       setModalMessage(
         <div className="save-success">
