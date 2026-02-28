@@ -34,7 +34,15 @@
 	],
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+			{
+					"binding": "DB",
+					"database_name": "table-order",
+					"database_id": "1d6173af-c060-4d42-b73d-997eaa8639c7",
+					"migrations_dir": "drizzle"
+			}
+	]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

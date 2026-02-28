@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1772285515492,
+      "tag": "0000_magenta_morbius",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1772286289739,
+      "tag": "0001_public_lethal_legion",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1772286469088,
+      "tag": "0002_nervous_paladin",
+      "breakpoints": true
+    }
+  ]
+}
